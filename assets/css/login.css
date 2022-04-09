@@ -1,0 +1,72 @@
+/* 主体区域占满页面，设其背景 */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/login_bg.jpg) no-repeat center;
+    background-size: cover;
+}
+
+
+/* 登录/注册区域定位至中间 */
+
+.login_reg {
+    width: 400px;
+    height: 310px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* 登录/注册区域的头部logo */
+
+.title_box {
+    height: 60px;
+    background: url(../images/login_title.png) no-repeat center;
+}
+
+
+/* 默认注册区域不显示 */
+
+.reg_box {
+    display: none;
+}
+
+.layui-form {
+    padding: 0 30px;
+}
+
+
+/* 字体图标定位到输入框左边 */
+
+.layui-form-item {
+    position: relative;
+}
+
+.layui-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.layui-input {
+    padding-left: 32px;
+}
+
+
+/* 链接居于右侧 */
+
+.links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.links a {
+    font-size: 12px;
+}
