@@ -38,9 +38,9 @@ function render_avatar(data) {
     // 设置头像, 若data中图片存在，则设其，若不存，则采用昵称首字为头像
     if (data.user_pic) {
         $('.text-avatar').hide();
-        $('.user_info_box img').attr('src', data.user_pic).show();
+        $('.layui-nav-img').attr('src', data.user_pic).show();
     } else {
-        $('.user_info_box img').hide();
+        $('.layui-nav-img').hide();
         $('.text-avatar').html(user_name[0].toUpperCase()).show();
     }
 }

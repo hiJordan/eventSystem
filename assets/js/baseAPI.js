@@ -15,6 +15,10 @@ $.ajaxPrefilter(function(options) {
     // 不论请求成功，还是失败，都会调用complete
     // 若直接进入index界面，没有登录，则跳转到login界面
     options.complete = function(res) {
+        // 若响应的内容中，无responseJSON键，显示警告信息
+        if (!res.responseJSON) {
+            return alert(res.statusText);
+        }
         if (res.responseJSON.status === 1) {
             localStorage.removeItem('token');
             location.href = '/day17-eventMangeSystemProject/login.html'
