@@ -44,3 +44,7 @@ function render_avatar(data) {
         $('.text-avatar').html(user_name[0].toUpperCase()).show();
     }
 }
+
+function test(params) {
+    console.log(123);
+}

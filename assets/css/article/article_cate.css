@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 15px;
+    background-color: #f4f4f4;
+}
+
+
+/* 表格内容居中显示 */
+
+.layui-table th,
+td {
+    text-align: center;
+}
+
+
+/* 文章类别头部元素左右分布 */
+
+.layui-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* 美化添加文章分类的布局 */
+
+.layui-form {
+    padding: 30px 30px 0 0;
+}

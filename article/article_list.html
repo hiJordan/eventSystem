@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章管理</title>
+    <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../assets/css/article/article_list.css">
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">
+            文章管理
+        </div>
+        <div class="layui-card-body">
+            <!-- 文章筛选区域 -->
+            <form class="layui-form">
+                <div class="layui-form-item layui-inline">
+                    <select name="cate_id" lay-verify="">
+                    </select>
+                </div>
+                <div class="layui-form-item layui-inline">
+                    <select name="state" lay-verify="">
+                        <option value="">请选择状态</option>
+                        <option value="已发布">已发布</option>
+                        <option value="草稿">草稿</option>
+                    </select>
+                </div>
+                <div class="layui-form-item layui-inline">
+                    <button class="layui-btn" lay-submit>筛选</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </form>
+            <!-- 文章列表区域 -->
+            <table class="layui-table">
+                <colgroup>
+                    <col>
+                    <col width="200px">
+                    <col width="200px">
+                    <col width="200px">
+                    <col width="200px">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>文章标题</th>
+                        <th>分类</th>
+                        <th>发表时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <!-- 页码区域 -->
+            <div id="paging"></div>
+        </div>
+    </div>
+    <!-- 模板引擎，循环遍历生成表格项 -->
+    <script type="text/html" id="article_list">
+        {{ each data }}
+        <tr>
+            <td>{{ $value.title }}</td>
+            <td>{{ $value.cate_name }}</td>
+            <td>{{ $value.pub_date | formate_time}}</td>
+            <td>{{ $value.state }}</td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-xs modify_list" data-id="{{ $value.Id }}">修改</button>
+                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs del_list" data-id="{{ $value.Id }}">删除</button>
+            </td>
+        </tr>
+        {{ /each }}
+    </script>
+    <!-- 模板引擎，生成分类下拉列表 -->
+    <script type="text/html" id="article_cates">
+        <option value="">请选择分类</option>
+        {{ each data }}
+        <option value="{{ $value.Id }}">{{ $value.name }}</option>
+        {{ /each }}
+    </script>
+    <!-- 弹出层，展示修改文章信息的页面 -->
+    <script type="text/html" , id="modify_article">
+        <div class="layui-card">
+            <div class="layui-card-body">
+
+            </div>
+        </div>
+
+    </script>
+
+    <script src="../assets/lib/layui/layui.all.js"></script>
+    <script src="../assets/lib/jquery.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
+    <script src="../assets/js/baseAPI.js"></script>
+    <script src="../assets/js/article/article_list.js"></script>
+</body>
+
+</html>
